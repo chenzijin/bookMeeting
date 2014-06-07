@@ -163,10 +163,11 @@ public class watching extends Activity {
 					                     username = json_data.getString("username");
 					                     num = json_data.getInt("num");
 					                     HashMap<String, String> map = new HashMap<String, String>();  
-					            	      map.put("Time", "时间："+time);  
-					            	      map.put("Pos", "地点："+add); 
-					            	      map.put("Topic", "主题："+bookname);
+					            	      map.put("Time", time);  
+					            	      map.put("Pos", add); 
+					            	      map.put("Topic", bookname);
 					            	      map.put("us", username);
+					            	      map.put("note", other);
 					            	      map.put("Num", num+"");
 					            	      map.put("meetingId", meetingId+"");
 					            	      mylist.add(map);  
@@ -212,11 +213,11 @@ public class watching extends Activity {
                 HashMap<String,String> map=(HashMap<String,String>)list.getItemAtPosition(arg2);   
                 String time=map.get("Time");   
                 String pos=map.get("Pos");  
-                String alalala = map.get("Topic");
                 
-                final String topic=alalala.substring(3);
+                final String topic=map.get("Topic");
                 String us=map.get("us");
                 String num=map.get("Num");
+                String note=map.get("note");
                 final String meetingId = map.get("meetingId");
                 Toast.makeText(getApplicationContext(), "你选择了第"+arg2+"个Item，Time的值是："+time+"Pos的值是:"+pos+"，主题是："+topic, Toast.LENGTH_SHORT).show();   
                 setContentView(R.layout.xiangqing);
@@ -225,11 +226,13 @@ public class watching extends Activity {
                 TextView SpecificTopic = (TextView)findViewById(R.id.SpecificTopic);
                 TextView Faqiren = (TextView)findViewById(R.id.Faqiren);
                 TextView PeopleNum = (TextView)findViewById(R.id.PeopleNum);
+                TextView Note = (TextView)findViewById(R.id.Note);
                 Button Attend = (Button)findViewById(R.id.Attend);
                 SpecificTime.setText(time);
                 SpecificPos.setText(pos);
                 SpecificTopic.setText(topic);
                 Faqiren.setText(us);
+                Note.setText(note);
                 PeopleNum.setText(num);
                 Attend.setOnClickListener(new OnClickListener() {
         			@Override

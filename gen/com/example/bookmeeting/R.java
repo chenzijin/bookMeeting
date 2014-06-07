@@ -26,11 +26,12 @@ public final class R {
         public static final int shu_background=0x7f020002;
     }
     public static final class id {
-        public static final int Attend=0x7f080027;
+        public static final int Attend=0x7f080029;
         public static final int Faqiren=0x7f080024;
         public static final int FindingNewButton=0x7f080007;
+        public static final int Note=0x7f080026;
         public static final int Num=0x7f08001a;
-        public static final int PeopleNum=0x7f080026;
+        public static final int PeopleNum=0x7f080028;
         public static final int Pos=0x7f080017;
         public static final int ShuhuiListView=0x7f080015;
         public static final int SpecificPos=0x7f080020;
@@ -41,9 +42,10 @@ public final class R {
         public static final int TextView02=0x7f08001e;
         public static final int TextView03=0x7f080023;
         public static final int TextView04=0x7f080025;
+        public static final int TextView05=0x7f080027;
         public static final int Time=0x7f080016;
         public static final int Topic=0x7f080018;
-        public static final int action_settings=0x7f080028;
+        public static final int action_settings=0x7f08002a;
         public static final int cancelButton=0x7f080013;
         public static final int elv=0x7f08001d;
         public static final int findingAddEditText=0x7f080004;
