@@ -114,6 +114,8 @@ public class finding extends Activity {
     	final EditText othertv = (EditText) findViewById(R.id.findingElseEditText);
     	Button findingCanBtn = (Button)findViewById(R.id.findingCancelButton);
     	Button FindingBtn = (Button)findViewById(R.id.FindingNewButton);
+    	Button ShareBtn = (Button) findViewById(R.id.ShareButton);
+    	
     	findingCanBtn.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -156,11 +158,7 @@ public class finding extends Activity {
 						String username2;
 						
 							showDialog("创建成功！");
-							Intent back2Intent=new Intent(finding.this,main_page.class);
-                       	    Bundle data = new Bundle();
-                       	    data.putString("name", user);
-                       	    back2Intent.putExtras(data);
-            				startActivity(back2Intent);
+							
 						
 						
 					}else{
@@ -178,6 +176,21 @@ public class finding extends Activity {
 				}
 		    	
 		    	
+			}
+		});
+        ShareBtn.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				String bookname = booktv.getText().toString();
+		    	String time = timetv.getText().toString();
+				String add = addtv.getText().toString();
+				String other = othertv.getText().toString();
+				Intent intent=new Intent(Intent.ACTION_SEND);			      
+			    intent.setType("text/plain");
+			    intent.putExtra(Intent.EXTRA_SUBJECT, "分享");
+			    intent.putExtra(Intent.EXTRA_TEXT, "在"+time+"，"+user+"与君相约在"+add+"，共同在《"+bookname+"》的海洋里畅游，不见不散！PS："+other+"（发自 中大书友 软件）");
+			    startActivity(Intent.createChooser(intent, getTitle()));
 			}
 		});
         
