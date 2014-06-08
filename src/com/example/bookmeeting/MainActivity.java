@@ -146,7 +146,10 @@ public class MainActivity extends Activity {
 					if(httpResponse.getStatusLine().getStatusCode() == HttpStatus.SC_OK){
 						result = EntityUtils.toString(httpResponse.getEntity(),"utf-8");
 						String username2;
-						if(result.length() == 12)
+						String error1 = "用户名或密码不能为空！";
+						String error2 = "此用户名已被人注册！";
+						String error3 = "两次输入的密码不一致！";
+						if(result.contains(error1) || result.contains(error2) || result.contains(error3))
 						{
 							showDialog(result);
 						}

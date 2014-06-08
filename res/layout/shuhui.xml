@@ -4,11 +4,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" 
-    android:background="@drawable/shu_background">
+    android:background="@drawable/shu_background"
+    android:gravity="center">
     
-    <ListView android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/ShuhuiListView">
+    <ListView android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/ShuhuiListView"
+        android:gravity="center">
     </ListView>
     
 

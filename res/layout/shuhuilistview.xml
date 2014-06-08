@@ -6,20 +6,24 @@
     android:id="@+id/ShuhuiListView"
     android:paddingBottom="3dip"
     android:paddingLeft="10dip" 
+    android:gravity="center"
     >
     <TextView android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:id="@+id/Time">        
+        android:id="@+id/Time"
+        android:gravity="center">        
     </TextView>
     <TextView   
         android:layout_height="wrap_content"   
         android:layout_width="wrap_content" 
-        android:id="@+id/Pos"> 
+        android:id="@+id/Pos"
+        android:gravity="center"> 
      </TextView>   
      <TextView   
         android:layout_height="wrap_content"   
         android:layout_width="wrap_content" 
-        android:id="@+id/Topic"> 
+        android:id="@+id/Topic"
+        android:gravity="center"> 
      </TextView>
      <TextView   
         android:layout_height="0dp"   

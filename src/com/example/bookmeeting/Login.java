@@ -143,17 +143,21 @@ public class Login extends Activity {
 					if(httpResponse.getStatusLine().getStatusCode() == HttpStatus.SC_OK){
 						result2 = EntityUtils.toString(httpResponse.getEntity(),"utf-8");
 						String username2;
-						
-						
-						
+						String error4 = "用户名或密码不能为空！";
+						String error5 = "没有该用户名！";
+						if(result2.contains(error4) || result2.contains(error5))
+						{
+							showDialog(result2);
+						}
+						else{
 				              try {
 	
 					                  jArray2 = new JSONArray(result2);
-		
+					                  
 					                  JSONObject json_data = null;
 					                  
 										
-										
+									
 		
 					                 
 		                              if(jArray2.length() == 1)
@@ -171,9 +175,10 @@ public class Login extends Activity {
 		                     				startActivity(firstIntent);
 		                                 }
 		                                 else{
-		                                	 showDialog("登录失败！");
+		                                	 showDialog("密码错误！");
 		                                 }
 				                      }
+		                              
 		                              
 		                            	  
 		                              
@@ -199,7 +204,8 @@ public class Login extends Activity {
 				              }
 						
 						
-					}else{
+					}
+				}else{
 						System.out.print("request error");
 					}
 				} catch (UnsupportedEncodingException e) {
