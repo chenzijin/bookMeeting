@@ -122,6 +122,8 @@ public class main_page extends Activity{
         Button newOneBtn = (Button)findViewById(R.id.newOneBtn);
     	Button whtchingAllBtn = (Button)findViewById(R.id.whtchingAllBtn);
     	Button finish = (Button)findViewById(R.id.finish);
+    	Button myshuhuiBtn = (Button)findViewById(R.id.myshuhuiBtn);
+    	Button myAttenBtn = (Button)findViewById(R.id.myAttenBtn);
     	newOneBtn.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -144,6 +146,32 @@ public class main_page extends Activity{
            	    data.putString("name", user);
            	    watchIntent.putExtras(data);
 				 startActivity(watchIntent);
+			}
+			
+				
+		});
+    	myshuhuiBtn.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				
+                Intent findIntent=new Intent(main_page.this,myshuhui.class);
+                Bundle data = new Bundle();
+           	    data.putString("name", user);
+           	    findIntent.putExtras(data);
+				 startActivity(findIntent);
+			}
+			
+				
+		});
+    	myAttenBtn.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				
+                Intent findIntent=new Intent(main_page.this,Atten.class);
+                Bundle data = new Bundle();
+           	    data.putString("name", user);
+           	    findIntent.putExtras(data);
+				 startActivity(findIntent);
 			}
 			
 				

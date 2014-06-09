@@ -93,7 +93,7 @@ import android.widget.EditText;
 
 
 
-public class watching extends Activity {
+public class myshuhui extends Activity {
 	private static final String TAG = "MainActivity";
 	JSONArray jArray;
     /** Called when the activity is first created. */
@@ -123,10 +123,11 @@ public class watching extends Activity {
 				
 		    	
 		    	
-		    	String url = "http://1.tsthelo.sinaapp.com/meeting_result.php";
+		    	String url = "http://1.tsthelo.sinaapp.com/myshuhui.php";
 		        HttpPost httpRequest = new HttpPost(url);
 		        
 		        List<NameValuePair> params = new ArrayList<NameValuePair>();
+		        params.add(new BasicNameValuePair("username", user));
 		        
 		        
 		        try {
@@ -220,67 +221,21 @@ public class watching extends Activity {
                 String note=map.get("note");
                 final String meetingId = map.get("meetingId");
                 Toast.makeText(getApplicationContext(), "你选择了第"+arg2+"个Item，Time的值是："+time+"Pos的值是:"+pos+"，主题是："+topic, Toast.LENGTH_SHORT).show();   
-                setContentView(R.layout.xiangqing);
-                TextView SpecificTime = (TextView)findViewById(R.id.SpecificTime);
-                TextView SpecificPos = (TextView)findViewById(R.id.SpecificPos);
-                TextView SpecificTopic = (TextView)findViewById(R.id.SpecificTopic);
-                TextView Faqiren = (TextView)findViewById(R.id.Faqiren);
-                TextView PeopleNum = (TextView)findViewById(R.id.PeopleNum);
-                TextView Note = (TextView)findViewById(R.id.Note);
-                Button Attend = (Button)findViewById(R.id.Attend);
+                setContentView(R.layout.myxiangqing);
+                TextView SpecificTime = (TextView)findViewById(R.id.mySpecificTime);
+                TextView SpecificPos = (TextView)findViewById(R.id.mySpecificPos);
+                TextView SpecificTopic = (TextView)findViewById(R.id.mySpecificTopic);
+                TextView Faqiren = (TextView)findViewById(R.id.myFaqiren);
+                TextView PeopleNum = (TextView)findViewById(R.id.myPeopleNum);
+                TextView Note = (TextView)findViewById(R.id.myNote);
+                
                 SpecificTime.setText(time);
                 SpecificPos.setText(pos);
                 SpecificTopic.setText(topic);
                 Faqiren.setText(us);
                 Note.setText(note);
                 PeopleNum.setText(num);
-                Attend.setOnClickListener(new OnClickListener() {
-        			@Override
-        			public void onClick(View v) {
-        				String url = "http://1.tsthelo.sinaapp.com/meeting_attend.php";
-        		        HttpPost httpRequest = new HttpPost(url);
-        		        
-        		        List<NameValuePair> params = new ArrayList<NameValuePair>();
-        		        params.add(new BasicNameValuePair("meetingId", meetingId));
-        		        params.add(new BasicNameValuePair("username", user));
-        		        try {
-        					HttpEntity httpEntity = new UrlEncodedFormEntity(params,"utf-8");
-        					httpRequest.setEntity(httpEntity);
-        					
-        					HttpClient httpClient = new DefaultHttpClient();
-        					HttpResponse httpResponse = httpClient.execute(httpRequest);
-        					//showDialog(topic);
-        					if(httpResponse.getStatusLine().getStatusCode() == HttpStatus.SC_OK){
-        						result = EntityUtils.toString(httpResponse.getEntity(),"utf-8");
-        						
-						
-						
-					
-        						Intent first2Intent=new Intent(watching.this,main_page.class);
-                           	 Bundle data = new Bundle();
-                           	 data.putString("name", user);
-                           	 first2Intent.putExtras(data);
-                				startActivity(first2Intent);
-        						}
-        						
-        					
-        					
-        				} catch (UnsupportedEncodingException e) {
-        					// TODO Auto-generated catch block
-        					e.printStackTrace();
-        				} catch (ClientProtocolException e) {
-        					// TODO Auto-generated catch block
-        					e.printStackTrace();
-        				} catch (IOException e) {
-        					// TODO Auto-generated catch block
-        					e.printStackTrace();
-        				}
-        					
-        				
-        			}
-        			
-        				
-        		});
+               
   		  }   
                
         });	  	

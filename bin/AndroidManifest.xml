@@ -28,6 +28,8 @@
         <activity android:name=".main_page"/>
         <activity android:name=".finding"/>
         <activity android:name=".watching"/>
+        <activity android:name=".myshuhui"/>
+        <activity android:name=".Atten"/>
         
     </application>
  <!-- 授权访问网络 -->
